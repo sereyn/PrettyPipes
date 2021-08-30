@@ -299,7 +299,8 @@ public class PipeTileEntity extends TileEntity implements INamedContainerProvide
 
     public float getItemSpeed(ItemStack stack) {
         float moduleSpeed = (float) this.streamModules().mapToDouble(m -> m.getRight().getItemSpeedIncrease(m.getLeft(), this)).sum();
-        float pressureSpeed = this.pressurizer != null && this.pressurizer.pressurizeItem(stack, true) ? 0.45F : 0;
+        // float pressureSpeed = this.pressurizer != null && this.pressurizer.pressurizeItem(stack, true) ? 0.45F : 0;
+        float pressureSpeed = this.pressurizer != null ? 0.45F : 0;
         return 0.05F + moduleSpeed + pressureSpeed;
     }
 
